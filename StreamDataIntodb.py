@@ -1,5 +1,3 @@
-#!usr/bin/python
-
 import mysql.connector
 from mysql.connector import Error
 import tweepy
@@ -22,9 +20,23 @@ def connect(username, created_at, tweet, retweet_count, place , location):
         conn = mysql.connector.connect(host = 'localhost',
                                        database= 'twitterdb', user='root', password=password, charset='utf8')
 
+        if conn.is_connected():
+            """
+            Store the data into the db
+            """
+            cursor = conn.cursor()
+
+            query = "INSERT INTO table (username, created_at, tweet, retweet_count, place, location) VALUES (%s, %s, %s, %s, " \
+                    "%s, %s)"
+            cursor.execute(query, (username, created_at, tweet, retweet_count, place, location))
+
+            #save changes
+            conn.commit()
+
     except Error as err:
         print(err)
 
+    cursor.close()
     conn.close()
 
 

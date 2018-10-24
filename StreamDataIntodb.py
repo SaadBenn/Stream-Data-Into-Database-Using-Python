@@ -4,18 +4,31 @@ import mysql.connector
 from mysql.connector import Error
 import tweepy
 import json
-import os
-import subprocess
 
-def test():
-    subprocess.call('./settings.sh', shell=True)
 
-    consumer_key = os.environ(['CONSUMER_KEY'])
-    consumer_secret = os.environ(['CONSUMER_SECRET'])
-    access_token = os.environ(['ACCESS_TOKEN'])
-    access_token_secret = os.environ(['ACCESS_TOKEN_SECRET'])
-    password = os.environ(['PASSWORD'])
+def connect(username, created_at, tweet, retweet_count, place , location):
+    """
+    Streams the data into db
+
+    :param username: column in the database table
+    :param created_at: column in the database table
+    :param tweet: column in the database table
+    :param retweet_count: column in the database table
+    :param place: column in the database table
+    :param location: column in the database table
+    """
+
+    try:
+        conn = mysql.connector.connect(host = 'localhost',
+                                       database= 'twitterdb', user='root', password=password, charset='utf8')
+
+    except Error as err:
+        print(err)
+
+    conn.close()
+
 
 
 if __name__ == '__main__':
-    test()
+
+

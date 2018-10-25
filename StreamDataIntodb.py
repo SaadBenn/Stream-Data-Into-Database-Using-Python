@@ -3,6 +3,12 @@ from mysql.connector import Error
 import tweepy
 import StreamListener
 
+# Alternatively this can be put in a script file
+consumer_key = 'PLACEHOLDER'
+consumer_secret = 'PLACEHOLDER'
+access_token = 'PLACEHOLDER'
+access_token_secret = 'PLACEHOLDER'
+password = 'PLACEHOLDER'
 
 class Connector(object):
 

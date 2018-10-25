@@ -3,7 +3,7 @@ Given the frequency that I have seen database languages listed as a requirement 
 
 # Note
 Before we access the Twitter API you need to set up a twitter app.
-1. go to the following website https://developer.twitter.com/ and create an account.
+1. go to the following website [click here](https://developer.twitter.com/) and create an account.
 2. Once you have verified your email you can log into your account. You should be able to create a new app on the following webpage: [click here](https://developer.twitter.com/en/apps)
 3. Fill in all the details about your app and then create your access token.
 4. Make a note of your consumer key, consumer secret, OAuth access token and OAuth access token secret. These are needed to connect to the API.

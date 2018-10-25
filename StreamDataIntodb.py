@@ -1,14 +1,8 @@
 import mysql.connector
 from mysql.connector import Error
 import tweepy
-import StreamListener
+import Streamlistener
 
-# Alternatively this can be put in a script file
-consumer_key = 'PLACEHOLDER'
-consumer_secret = 'PLACEHOLDER'
-access_token = 'PLACEHOLDER'
-access_token_secret = 'PLACEHOLDER'
-password = 'PLACEHOLDER'
 
 class Connector(object):
 
@@ -55,7 +49,7 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth, wait_on_rate_limit=True)
 
-    listener = StreamListener(api=api)
+    listener = Streamlistener(api=api)
     stream = tweepy.Stream(auth, listener=listener)
 
     track = ['golf', 'masters', 'reed', 'mcilroy', 'woods']

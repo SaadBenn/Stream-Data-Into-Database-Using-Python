@@ -3,6 +3,13 @@ from mysql.connector import Error
 import tweepy
 import Streamlistener
 
+# Alternatively this can be put in a script file
+consumer_key = 'PLACEHOLDER'
+consumer_secret = 'PLACEHOLDER'
+access_token = 'PLACEHOLDER'
+access_token_secret = 'PLACEHOLDER'
+password = 'PLACEHOLDER'
+
 
 class Connector(object):
 
@@ -29,7 +36,8 @@ class Connector(object):
                 """
                 cursor = conn.cursor()
 
-                query = "INSERT INTO table (username, created_at, tweet, retweet_count, place, location) VALUES (%s, %s, %s, %s, " \
+                query = "INSERT INTO table (username, created_at, tweet, retweet_count, place, location) VALUES (%s, " \
+                        "%s, %s, %s, " \
                         "%s, %s)"
                 cursor.execute(query, (username, created_at, tweet, retweet_count, place, location))
 
